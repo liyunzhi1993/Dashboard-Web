@@ -3,7 +3,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "v3.3.7",
-    "jquery": "3.2.1",
+    "jquery": "3.3.1",
     "font-awesome": "Font-Awesome#v4.7.0",
     "blueimp-file-upload": "v9.19.2",
     "photoswipe": "v4.1.2",
@@ -16,7 +16,7 @@
   },
   "resolutions": {
     "bootstrap": "v3.3.7",
-    "jquery": "3.2.1",
+    "jquery": "3.3.1",
     "blueimp-file-upload": "v9.19.2",
     "vue": "v2.5.13",
     "photoswipe": "v4.1.2",
