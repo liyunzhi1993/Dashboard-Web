@@ -1,0 +1,113 @@
+﻿@inject MoFang.MobileSite.Core.Security.OASecurityManager SecurityManager
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@(ViewBag.Title + '-' + SiteConfiguration.Value.Title)</title>
+    <meta name="keywords" content="@ViewBag.Keywords" />
+    <meta name="description" content="@Html.Raw(ViewBag.Description)" />
+    <meta name="author" content="">
+    <link rel="icon" href="@Url.Content("/favicon.ico")">
+    <link rel="stylesheet" href="@Url.Content("/lib/font-awesome/css/font-awesome.min.css")" asp-append-version="true" />
+    <link rel="stylesheet" href="@Url.Content("/css/mofang.mobilesite.dashboard.min.css")" asp-append-version="true" />
+    @if (IsSectionDefined("Header"))
+    {
+        @await RenderSectionAsync("Header")
+    }
+    @if (IsSectionDefined("Css"))
+    {
+        @await RenderSectionAsync("Css")
+    }
+    <script src="@Url.Content("/js/mofang.mobilesite.min.js")" asp-append-version="true"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="fixed-left">
+    <div id="wrapper">
+        <div class="topbar">
+            <div class="topbar-left">
+                <div class="text-center">
+                    <a href="/Home/Index" class="logo"><i class="mdi mdi-radar"></i> <span>Dashboard</span></a>
+                </div>
+            </div>
+            <nav class="navbar-custom">
+                <ul class="list-inline float-right mb-0">
+                    <li class="list-inline-item notification-list hide-phone">
+                        <a class="nav-link waves-light waves-effect" href="#" id="btn-fullscreen">
+                            <i class="mdi mdi-crop-free noti-icon"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item dropdown notification-list show">
+                        <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                            <img src="http://p1.music.126.net/iAMkMQgClzba1cC6dW2AIQ==/3265549604063263.jpg?param=180y180" alt="用户信息" class="rounded-circle">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right profile-dropdown" aria-labelledby="Preview" x-placement="bottom-end" style="position: absolute; transform: translate3d(-110px, 70px, 0px); top: 0px; left: 0px; will-change: transform;">
+                            <div class="dropdown-item noti-title">
+                                <h5 class="text-overflow"><small>欢迎，@SecurityManager.CurrentUser.UserName</small> </h5>
+                            </div>
+                            <a href="/My/Edit" class="dropdown-item notify-item">
+                                <i class="mdi mdi-settings"></i><span>设置</span>
+                            </a>
+                            <a href="/Account/LogOff" class="dropdown-item notify-item">
+                                <i class="mdi mdi-logout"></i><span>退出</span>
+                            </a>
+
+                        </div>
+                    </li>
+                </ul>
+                <ul class="list-inline menu-left mb-0">
+                    <li class="float-left">
+                        <button class="button-menu-mobile open-left waves-light waves-effect">
+                            <i class="mdi mdi-menu"></i>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Top Bar End -->
+        <div class="left side-menu">
+            <div class="sidebar-inner slimscrollleft">
+                <div id="sidebar-menu">
+                    <ul>
+                        <li class="menu-title">核心功能</li>
+                        <li>
+                            <a href="/Home/Index" class="waves-effect waves-primary">
+                                <i class="ti-home"></i><span> 首页 </span>
+                            </a>
+                        </li>
+                        <li class="has_sub">
+                            <a href="javascript:void(0);" class="waves-effect waves-primary">
+                                <i class="ti-light-bulb"></i> <span> 活动 </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul class="list-unstyled">
+                                <li><a href="/Activity/List">Banner列表</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div class="content-page">
+            @RenderBody()
+            <footer class="footer">
+                2018 © Dashboard
+            </footer>
+        </div>
+    </div>
+    <script>
+        var resizefunc = [];
+    </script>
+    <script src="@Url.Content("/js/mofang.mobilesite.dashboard.min.js")" asp-append-version="true"></script>
+    @if (IsSectionDefined("Scripts"))
+    {
+        @await RenderSectionAsync("Scripts")
+    }
+</body>
+</html>

@@ -1,0 +1,60 @@
+﻿@model MoFang.MobileSite.Core.Model.User.UserModel
+<style>
+    .custom-file-chooser, .file-chooser {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        filter: alpha(opacity=0);
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        opacity: 0;
+        background-color: transparent;
+        color: transparent;
+    }
+</style>
+<div class="row" id="banner">
+    <div class="col-md-12">
+        <div class="bg-picture" style="background-image:url('@Model.BannerFileName?imageMogr2/format/webp/blur/1x0/quality/100|imageslim')">
+            <span class="bg-picture-overlay"></span><!-- overlay -->
+            <div class="box-layout meta top">
+                <div class="col-md-6 clearfix">
+                    <button id="btnUploadBanner" v-on:click="bannerSelect()" class="btn btn-default hidden">上传背景图片</button>
+                    @*<a href="javascript:;" data-toggle="tooltip" data-placement="right" data-original-title="Upload Cover Photo" class="cover-uploader">
+                        <i class="fa fa-camera"></i>
+                        <input class="custom-file-chooser" id="cover-photo" name="coverPhoto" type="file">
+                    </a>*@
+                </div>
+            </div>
+            <!-- meta -->
+            <div class="box-layout meta bottom">
+                <div class="col-md-6 clearfix">
+                    <span class="img-wrapper pull-left m-r-15">
+                        <img src="@Model.Avatar" alt="" style="width:64px" class="img-circle img-no-padding img-responsive">
+                    </span>
+                    <div class="media-body">
+                        <h3 class="text-white mb-2 m-t-10 ellipsis">@Model.NickName</h3>
+                        @*<span><i class="fa fa-mars-stroke"></i></span>*@
+                        <h5 class="text-white">@Model.Signature</h5>
+                    </div>
+                </div>
+                @*<div class="col-md-6">
+                        <div class="pull-right">
+                            <div class="dropdown">
+                                <a data-toggle="dropdown" class="dropdown-toggle btn btn-azure" href="#" aria-expanded="false"> 关注 <span class="caret"></span></a>
+                                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                    <li><a href="#">Poke</a></li>
+                                    <li><a href="#">Private message</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Unfollow</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>*@
+            </div><!--/ meta -->
+        </div>
+    </div>
+    <div hidden>
+        <input id="fileupload" type="file" name="bannerFile" accept="image/*">
+    </div>
+</div>
+<script src="@Url.Content("/js/component/banner.js")"></script>

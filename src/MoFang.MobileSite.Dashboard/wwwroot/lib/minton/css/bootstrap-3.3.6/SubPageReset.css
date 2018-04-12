@@ -1,0 +1,40 @@
+﻿body {
+    font-family: "微软雅黑";
+    font-size: 14px;
+   
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+
+/*重置子页面左右Padding*/
+.container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+/*header 部分样式*/
+#header_projectname {
+    padding-top: 24px;
+    font-size: 24px;
+    color: #fff;
+}
+#header_navbar {
+    border-radius: 0px;
+    border: 0px;
+}
+.top-menu {
+    padding: 5px;
+}
+
+.titleStatu {
+    font-size: 16px;
+    margin-top: 5px !important;
+}
+
+    .titleStatu > li > a {
+        color: #fff !important;
+    }
+/*Panel 折叠按钮样式*/
+.panel-chevron-icon {
+        margin-top: -16px;
+}

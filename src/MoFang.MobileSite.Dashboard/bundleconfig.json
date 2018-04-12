@@ -1,0 +1,71 @@
+[
+  {
+    "outputFileName": "wwwroot/js/mofang.mobilesite.min.js",
+    "inputFiles": [
+      "wwwroot/lib/jquery/dist/jquery.min.js",
+      "wwwroot/js/vue.min.js",
+      "wwwroot/lib/moment/min/moment.min.js",
+      "wwwroot/js/mofang.common.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/js/mofang.mobilesite.dashboard.min.js",
+    "inputFiles": [
+      "wwwroot/lib/minton/js/popper.min.js",
+      "wwwroot/lib/minton/js/bootstrap.min.js",
+      "wwwroot/lib/minton/js/detect.js",
+      "wwwroot/lib/minton/js/fastclick.js",
+      "wwwroot/lib/minton/js/jquery.slimscroll.js",
+      "wwwroot/lib/minton/js/jquery.blockUI.js",
+      "wwwroot/lib/minton/js/waves.js",
+      "wwwroot/lib/minton/js/jquery.nicescroll.js",
+      "wwwroot/lib/minton/js/wow.min.js",
+      "wwwroot/lib/minton/js/jquery.scrollTo.min.js",
+      "wwwroot/lib/minton/js/switchery.min.js",
+      "wwwroot/lib/minton/js/jquery.core.js",
+      "wwwroot/lib/minton/js/jquery.app.js",
+      "wwwroot/lib/minton/js/bootstrap_plugins/bootstrap-table/bootstrap-table.js",
+      "wwwroot/lib/minton/js/bootstrap_plugins/bootstrap-table/bootstrap-table-zh-CN.min.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/css/mofang.mobilesite.dashboard.min.css",
+    "inputFiles": [
+      "wwwroot/lib/minton/css/switchery.min.css",
+      "wwwroot/lib/minton/css/bootstrap.min.css",
+      "wwwroot/lib/minton/css/icons.css",
+      "wwwroot/lib/minton/css/style.css",
+      "wwwroot/lib/minton/css/bootstrap-table/bootstrap-table.css"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/js/photoswipe.min.js",
+    "inputFiles": [
+      "wwwroot/lib/photoswipe/dist/photoswipe.min.js",
+      "wwwroot/lib/photoswipe/dist/photoswipe-ui-default.min.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/css/photoswipe.min.css",
+    "inputFiles": [
+      "wwwroot/lib/photoswipe/dist/photoswipe.css",
+      "wwwroot/lib/photoswipe/dist/default-skin/default-skin.css"
+    ]
+  }
+]

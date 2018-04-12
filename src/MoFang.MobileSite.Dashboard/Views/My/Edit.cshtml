@@ -1,0 +1,135 @@
+﻿@using MoFang.MobileSite.Dashboard.ViewModels.My
+@model EditViewModel
+@{
+    ViewData["Title"] = "编辑个人信息";
+}
+<div class="content" id="edit">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="page-title-box">
+                    <h4 class="page-title">编辑个人信息</h4>
+                    <ol class="breadcrumb float-right">
+                        <li class="breadcrumb-item"><a href="#">编辑个人信息</a></li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card-box">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="p-20">
+                                <form method="post" role="form" enctype="multipart/form-data">
+                                    <div class="form-group row">
+                                        <label class="col-2 col-form-label">用户ID</label>
+                                        <div class="col-10">
+                                            <input type="text" name="UserName" readonly class="form-control" value="@Model.UserModel.UserName">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-2 col-form-label">用户昵称</label>
+                                        <div class="col-10">
+                                            <input type="text" name="NickName" class="form-control" value="@Model.UserModel.NickName">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <a class="btn" @@click="toggleShow1">设置头像</a>
+                                        <img class="avatar" v-if="avatarUrl1" :src="avatarUrl1" v-show="true" style="display: none;">
+                                        <my-upload url="https://httpbin.org/post" img-format="png"
+                                                   @@crop-success="cropSuccess"
+                                                   @@crop-upload-success="cropUploadSuccess"
+                                                   @@crop-upload-fail="cropUploadFail"
+                                                   field="avatar1"
+                                                   ki="0"
+                                                   v-model="show1"
+                                                   :no-rotate="false"
+                                                   :headers="headers"
+                                                   :params="otherParams"></my-upload>
+                                    </div>
+                                    <button type="button" class="btn btn-danger waves-effect waves-light" @@click="save()">保存</button>
+                                    @*<button type="button" class="btn btn-default waves-effect waves-light" onclick="location.href='List'">返回</button>*@
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts
+    {
+    <script>
+        import 'babel-polyfill';
+        import myUpload from '/js/vueComponents/upload-2.vue';
+        var edit = new Vue({
+            el: '#edit',
+            data: {
+                saveUrl: '/My/Save',
+                show1: false,
+                show2: false,
+                show3: false,
+                avatarUrl1: null,
+                avatarUrl2: null,
+                avatarUrl3: null,
+                otherParams: {
+                    token: '123456798',
+                    name: 'img'
+                },
+                headers: {
+                    smail: '*_~'
+                }
+            },
+            components: {
+                'my-upload': myUpload
+            },
+            methods: {
+                save: function () {
+                    var vm = this;
+                    $.post(vm.saveUrl, $("form").serialize(), function (data) {
+                        alert(data);
+                    });
+                },
+                toggleShow1() {
+                    let { show1 } = this;
+                    this.show1 = !show1;
+                },
+                toggleShow2() {
+                    let { show2 } = this;
+                    this.show2 = !show2;
+                },
+                toggleShow3() {
+                    let { show3 } = this;
+                    this.show3 = !show3;
+                },
+                cropSuccess(data, field, key) {
+                    if (field == 'avatar1') {
+                        this.avatarUrl1 = data;
+                    } else if (field == 'avatar2') {
+                        this.avatarUrl2 = data;
+                    } else {
+                        this.avatarUrl3 = data;
+                    }
+                    console.log('-------- 剪裁成功 --------');
+                },
+                cropUploadSuccess(data, field, key) {
+                    console.log('-------- 上传成功 --------');
+                    console.log(data);
+                    console.log('field: ' + field);
+                    console.log('key: ' + key);
+                },
+                cropUploadFail(status, field, key) {
+                    console.log('-------- 上传失败 --------');
+                    console.log(status);
+                    console.log('field: ' + field);
+                    console.log('key: ' + key);
+                }
+            }
+        });
+    </script>
+}
+

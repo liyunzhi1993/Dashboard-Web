@@ -1,0 +1,26 @@
+{
+  "name": "asp.net",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "v3.3.7",
+    "jquery": "3.2.1",
+    "font-awesome": "Font-Awesome#v4.7.0",
+    "blueimp-file-upload": "v9.19.2",
+    "photoswipe": "v4.1.2",
+    "bootstrap-modal": "2.2.6",
+    "sweetalert": "bootstrap-sweetalert#v0.3.1",
+    "jquery-validation": "1.17.0",
+    "moment": "2.20.1",
+    "blueimp-load-image": "v2.17.1",
+    "blueimp-tmpl": "v3.11.0"
+  },
+  "resolutions": {
+    "bootstrap": "v3.3.7",
+    "jquery": "3.2.1",
+    "blueimp-file-upload": "v9.19.2",
+    "vue": "v2.5.13",
+    "photoswipe": "v4.1.2",
+    "jquery-validation": "1.17.0",
+    "moment": "2.20.1"
+  }
+}
