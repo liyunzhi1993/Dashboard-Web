@@ -14,6 +14,7 @@ using MoFang.MobileSite.Core.Redis;
 using MoFang.MobileSite.Data.EntityFramework;
 using MoFang.MobileSite.Data.EntityFramework.Context;
 using MoFang.MobileSite.Dashboard.Middlewares;
+using System.IO;
 
 namespace MoFang.MobileSite.Dashboard
 {
@@ -21,17 +22,11 @@ namespace MoFang.MobileSite.Dashboard
     {
         public IConfigurationRoot Configuration { get; }
 
-        public Startup(IHostingEnvironment env)
+        public Startup(IConfiguration env)
         {
             var builder = new ConfigurationBuilder()
-           .SetBasePath(env.ContentRootPath)
-           .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-           .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
-
-            if (env.IsDevelopment())
-            {
-                builder.AddUserSecrets<Startup>();
-            }
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", true, true);
 
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
@@ -84,20 +79,13 @@ namespace MoFang.MobileSite.Dashboard
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseDatabaseErrorPage();
             }
             else
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-
             app.UseStaticFiles();
-
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
         }
     }
 }

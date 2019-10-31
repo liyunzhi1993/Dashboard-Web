@@ -15,5 +15,9 @@ namespace MoFang.MobileSite.Core.Model.User
         public string NickName { get; set; }//昵称
 
         public SexType Sex { get; set; }//性别
+
+        public String BannerFileName { get; set; }
+
+        public String Signature { get; set; }
     }
 }

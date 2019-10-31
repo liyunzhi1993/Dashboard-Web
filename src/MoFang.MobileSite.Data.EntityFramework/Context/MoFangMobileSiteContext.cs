@@ -58,7 +58,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
         {
             modelBuilder.Entity<Activity>(entity =>
             {
-                entity.ToTable("activity");
+                entity.ToTable<Activity>("activity");
 
                 entity.Property(e => e.Id).HasMaxLength(20);
 
@@ -87,7 +87,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Advertise>(entity =>
             {
-                entity.ToTable("advertise");
+                entity.ToTable<Advertise>("advertise");
 
                 entity.Property(e => e.Id).HasMaxLength(32);
 
@@ -118,7 +118,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Article>(entity =>
             {
-                entity.ToTable("article");
+                entity.ToTable<Article>("article");
 
                 entity.Property(e => e.Id).HasMaxLength(20);
 
@@ -149,7 +149,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Banner>(entity =>
             {
-                entity.ToTable("banner");
+                entity.ToTable<Banner>("banner");
 
                 entity.Property(e => e.Id).HasMaxLength(32);
 
@@ -176,7 +176,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
             {
                 entity.HasKey(e => new { e.Code, e.ParentCode });
 
-                entity.ToTable("bizarea");
+                entity.ToTable<Bizarea>("bizarea");
 
                 entity.Property(e => e.Code).HasMaxLength(20);
 
@@ -201,7 +201,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Brand>(entity =>
             {
-                entity.ToTable("brand");
+                entity.ToTable<Brand>("brand");
 
                 entity.Property(e => e.BrandId).HasMaxLength(20);
 
@@ -237,7 +237,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
             {
                 entity.HasKey(e => new { e.Code, e.ParentCode });
 
-                entity.ToTable("cityarea");
+                entity.ToTable<Cityarea>("cityarea");
 
                 entity.Property(e => e.Code).HasMaxLength(20);
 
@@ -254,7 +254,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Collect>(entity =>
             {
-                entity.ToTable("collect");
+                entity.ToTable<Collect>("collect");
 
                 entity.Property(e => e.Id).HasColumnType("int(11)");
 
@@ -282,7 +282,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Comment>(entity =>
             {
-                entity.ToTable("comment");
+                entity.ToTable<Comment>("comment");
 
                 entity.HasIndex(e => e.Id)
                     .HasName("Id");
@@ -354,7 +354,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Cooperation>(entity =>
             {
-                entity.ToTable("cooperation");
+                entity.ToTable<Cooperation>("cooperation");
 
                 entity.Property(e => e.Id).HasMaxLength(20);
 
@@ -377,7 +377,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Device>(entity =>
             {
-                entity.ToTable("device");
+                entity.ToTable<Device>("device");
 
                 entity.Property(e => e.DeviceId).HasMaxLength(20);
 
@@ -407,7 +407,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Feedback>(entity =>
             {
-                entity.ToTable("feedback");
+                entity.ToTable<Feedback>("feedback");
 
                 entity.Property(e => e.Id).HasColumnType("int(11)");
 
@@ -428,7 +428,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
             {
                 entity.HasKey(e => e.HelpId);
 
-                entity.ToTable("helpinfo");
+                entity.ToTable<Helpinfo>("helpinfo");
 
                 entity.Property(e => e.HelpId).HasColumnType("int(11)");
 
@@ -456,7 +456,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Housekeepingcomment>(entity =>
             {
-                entity.ToTable("housekeepingcomment");
+                entity.ToTable<Housekeepingcomment>("housekeepingcomment");
 
                 entity.HasIndex(e => new { e.Id, e.CommentId })
                     .HasName("Id");
@@ -490,7 +490,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Maintain>(entity =>
             {
-                entity.ToTable("maintain");
+                entity.ToTable<Maintain>("maintain");
 
                 entity.Property(e => e.Id).HasColumnType("int(11)");
 
@@ -507,7 +507,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Moerinfo>(entity =>
             {
-                entity.ToTable("moerinfo");
+                entity.ToTable<Moerinfo>("moerinfo");
 
                 entity.Property(e => e.Id)
                     .HasColumnName("id")
@@ -536,7 +536,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Notice>(entity =>
             {
-                entity.ToTable("notice");
+                entity.ToTable<Notice>("notice");
 
                 entity.Property(e => e.NoticeId).HasColumnType("int(11)");
 
@@ -564,7 +564,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Notify>(entity =>
             {
-                entity.ToTable("notify");
+                entity.ToTable<Notify>("notify");
 
                 entity.Property(e => e.Id).HasColumnType("int(11)");
 
@@ -607,7 +607,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Notifylog>(entity =>
             {
-                entity.ToTable("notifylog");
+                entity.ToTable<Notifylog>("notifylog");
 
                 entity.Property(e => e.Id).HasColumnType("int(11)");
 
@@ -626,7 +626,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
             {
                 entity.HasKey(e => e.CityCode);
 
-                entity.ToTable("opencity");
+                entity.ToTable<Opencity>("opencity");
 
                 entity.Property(e => e.CityCode).HasMaxLength(20);
 
@@ -648,7 +648,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Orderlog>(entity =>
             {
-                entity.ToTable("orderlog");
+                entity.ToTable<Orderlog>("orderlog");
 
                 entity.Property(e => e.Id).HasColumnType("int(20)");
 
@@ -729,7 +729,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Paidlog>(entity =>
             {
-                entity.ToTable("paidlog");
+                entity.ToTable<Paidlog>("paidlog");
 
                 entity.HasIndex(e => e.Id)
                     .HasName("Id");
@@ -811,7 +811,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
             {
                 entity.HasKey(e => e.ParamCode);
 
-                entity.ToTable("param");
+                entity.ToTable<Param>("param");
 
                 entity.Property(e => e.ParamCode).HasMaxLength(20);
 
@@ -829,7 +829,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Paramvalue>(entity =>
             {
-                entity.ToTable("paramvalue");
+                entity.ToTable<Paramvalue>("paramvalue");
 
                 entity.Property(e => e.Id).HasColumnType("int(11)");
 
@@ -857,7 +857,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Question>(entity =>
             {
-                entity.ToTable("question");
+                entity.ToTable<Question>("question");
 
                 entity.Property(e => e.Id).HasColumnType("int(11)");
 
@@ -876,7 +876,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
             {
                 entity.HasKey(e => new { e.Key, e.Type });
 
-                entity.ToTable("recommend");
+                entity.ToTable<Recommend>("recommend");
 
                 entity.Property(e => e.Key).HasMaxLength(128);
 
@@ -895,7 +895,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Reserve>(entity =>
             {
-                entity.ToTable("reserve");
+                entity.ToTable<Reserve>("reserve");
 
                 entity.Property(e => e.Id)
                     .HasMaxLength(20)
@@ -936,7 +936,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Room>(entity =>
             {
-                entity.ToTable("room");
+                entity.ToTable<Room>("room");
 
                 entity.HasIndex(e => e.RoomId)
                     .HasName("Id");
@@ -989,7 +989,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Roomtype>(entity =>
             {
-                entity.ToTable("roomtype");
+                entity.ToTable<Roomtype>("roomtype");
 
                 entity.HasIndex(e => e.RoomTypeId)
                     .HasName("Id");
@@ -1024,7 +1024,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Roomtypedevice>(entity =>
             {
-                entity.ToTable("roomtypedevice");
+                entity.ToTable<Roomtypedevice>("roomtypedevice");
 
                 entity.HasIndex(e => e.Id)
                     .HasName("Id");
@@ -1047,7 +1047,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Roomtypeimage>(entity =>
             {
-                entity.ToTable("roomtypeimage");
+                entity.ToTable<Roomtypeimage>("roomtypeimage");
 
                 entity.HasIndex(e => e.Id)
                     .HasName("Id");
@@ -1084,7 +1084,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Searchlog>(entity =>
             {
-                entity.ToTable("searchlog");
+                entity.ToTable<Searchlog>("searchlog");
 
                 entity.HasIndex(e => e.Id)
                     .HasName("Id");
@@ -1110,7 +1110,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Service>(entity =>
             {
-                entity.ToTable("service");
+                entity.ToTable<Service>("service");
 
                 entity.Property(e => e.ServiceId).HasColumnType("int(11)");
 
@@ -1165,7 +1165,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Station>(entity =>
             {
-                entity.ToTable("station");
+                entity.ToTable<Station>("station");
 
                 entity.Property(e => e.Id).HasColumnType("int(11)");
 
@@ -1199,7 +1199,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Store>(entity =>
             {
-                entity.ToTable("store");
+                entity.ToTable<Store>("store");
 
                 entity.HasIndex(e => e.StoreId)
                     .HasName("Id");
@@ -1270,7 +1270,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Storedevice>(entity =>
             {
-                entity.ToTable("storedevice");
+                entity.ToTable<Storedevice>("storedevice");
 
                 entity.Property(e => e.Id).HasColumnType("int(11)");
 
@@ -1290,7 +1290,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Storeimage>(entity =>
             {
-                entity.ToTable("storeimage");
+                entity.ToTable<Storeimage>("storeimage");
 
                 entity.Property(e => e.Id).HasColumnType("int(11)");
 
@@ -1324,7 +1324,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Storemanager>(entity =>
             {
-                entity.ToTable("storemanager");
+                entity.ToTable<Storemanager>("storemanager");
 
                 entity.Property(e => e.Id).HasColumnType("int(20)");
 
@@ -1361,7 +1361,7 @@ namespace MoFang.MobileSite.Data.EntityFramework.Context
 
             modelBuilder.Entity<Usermenus>(entity =>
             {
-                entity.ToTable("usermenus");
+                entity.ToTable<Usermenus>("usermenus");
 
                 entity.Property(e => e.Id).HasColumnType("int(11)");
 
